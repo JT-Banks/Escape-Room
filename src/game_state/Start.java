@@ -4,8 +4,8 @@ import games.Asylum.Rooms.FirstRoom;
 
 import java.util.Scanner;
 
-public class start {
-    static Scanner scan = new Scanner(System.in);
+public class Start {
+    private static final Scanner scan = new Scanner(System.in);
     static FirstRoom firstRoom = new FirstRoom();
     public static void startScreen() {
 
@@ -18,10 +18,11 @@ public class start {
         System.out.println("Please enter your game choice: ");
         String gameChoice = scan.nextLine();
         if(gameChoice.equalsIgnoreCase("asylum")) {
-            System.out.println("You have chosen to play the Asylum game!");
+            System.out.println("\nYou have chosen to play the Asylum game!\n");
             //Trigger Asylum game here
             firstRoom.startAsylumGame();
-            firstRoom.AnnieRoom();
+            //placeholder for now, need to implement flags for rooms to determine if the player can move to the next room
+            firstRoom.AnnieRoom(false);
         }
         else {
             System.out.println("You have entered an invalid choice!");

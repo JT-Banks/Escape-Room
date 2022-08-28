@@ -1,19 +1,21 @@
 package game_state;
 
-public class gameState {
+public class GameState {
     public static boolean PLAYING = true;
     public final static String PAUSED = "Game paused";
     public final static String GAME_OVER = "Game Over";
     public final static String GAME_WON = "Game Won";
 
-    public static int time;
+    public static long time;
+    public static long startTime;
 
     //Getters
     public static boolean getPlaying() {
         return PLAYING;
     }
     public static boolean setPlaying(boolean state) {
-        time = 60;
+        time = 60; //minutes
+        startTime = System.currentTimeMillis();
         return PLAYING;
     }
     public static String getPaused() {

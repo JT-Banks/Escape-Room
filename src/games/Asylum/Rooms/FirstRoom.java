@@ -1,36 +1,52 @@
 package games.Asylum.Rooms;
 
 import actions.PlayerActions;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
-import static game_state.gameState.time;
+import static game_state.GameState.startTime;
+import static game_state.GameState.time;
 
 public class FirstRoom {
-
+    public static boolean firstRoomSolved = false;
     public static boolean asylumGameState = false;
     PlayerActions actions = new PlayerActions();
-    static Scanner scan = new Scanner(System.in);
+    private static final Scanner scan = new Scanner(System.in);
 
+    //Need to implement flags for rooms to determine if the player can move to the next room
     public boolean startAsylumGame() {
         System.out.println("Asylum game started!");
         return asylumGameState = true;
     }
-        public void AnnieRoom() {
-            System.out.println("\t\t|*|*|*|*|*|*|*|*|*|*|*|");
-            System.out.println("\t\tWelcome to the Asylum!");
-            System.out.println("\t\t|*|*|*|*|*|*|*|*|*|*|*|");
-            System.out.println("You have 6 minutes to complete the challenge.\n");
-            System.out.println("Instructions: You will be placed in a room, with various objects that can be inspected.\n\nYou will be able to inspect objects as much as you want, however"
-                    + " keep in mind the time does continue to count down.\n");
+
+        public boolean AnnieRoom() {
+            System.out.println("\t|*|*|*|*|*|*|*|*|*|*|*|");
+            System.out.println("\tWelcome to the Asylum!");
+            System.out.println("\t|*|*|*|*|*|*|*|*|*|*|*|");
+            System.out.println("""
+                           _
+                         _|=|__________
+                        /              \\
+                       /                \\
+                      /__________________\\
+                       ||  || /--\\ ||  ||
+                       ||[]|| | .| ||[]||
+                     ()||__||_|__|_||__||()
+                    ( )|-|-|-|====|-|-|-|( )\s
+                    ^^^^^^^^^^====^^^^^^^^^^^""");
+            System.out.println("\nYou have 6 minutes to complete the challenge.\n");
+            System.out.println("""
+                    Instructions: You will be placed in a room, with various objects that can be inspected.
+
+                    You will be able to inspect objects as much as you want, however keep in mind the time does continue to count down.
+                    """);
             while (time > 0) {
-                System.out.println("\n***Command Menu***\n");
-                System.out.println("1. Inspect");
-                System.out.println("2. Repeat Clue");
-                System.out.println("3. Interact");
-                System.out.println("4. Traverse **specify direction: left, right, forward, back**");
-                System.out.println("5. Time left");
+                System.out.println("\n***Command Menu***");
+                System.out.println("\t1. Inspect");
+                System.out.println("\t2. Repeat Clue");
+                System.out.println("\t3. Interact");
+                System.out.println("\t4. Traverse **specify direction: left, right, forward, back**");
+                System.out.println("\t5. Time left");
                 int input = scan.nextInt();
                 switch (input) {
                     case 1: {
@@ -51,6 +67,7 @@ public class FirstRoom {
                     }
                 }
             }
+            return firstRoomSolved = true;
         }
 
     private void repeatClue() {
@@ -61,16 +78,19 @@ public class FirstRoom {
          * Also, take that variable to determine which clue to give the player.
          */
         System.out.println("You have chosen to repeat the clue");
-        System.out.println("This will reduce the time by 10 seconds");
-        time -= 10;
-        System.out.println("You have " + time + " seconds left"); //Maybe convert time to more readable format?
+        System.out.println("This will reduce the time by 4 minutes");
+        time -= 4;
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        long elapsedTimeInSeconds = elapsedTime / 1000;
+        long elapsedTimeInMinutes = elapsedTimeInSeconds / 60;
+        int timeLeft = (int) (time - elapsedTimeInMinutes);
+        System.out.println("Time left: " + timeLeft + " minutes");
         /* Call method here to choose the right clue for the progress the player is at.
          * For example, if the player is at the first room, the first clue will be given.
-         * determineClueToGivePlayer();
+         * determineClueToGivePlayer(Rooms room);
          */
     }
-
-
+    //Need to return something to determine the clue to give the player.
     private void inspectDesk() {
         HashMap<String, String> topDesk = new HashMap<>();
         topDesk.put("note", "The note reads:\n\nDear Annie,\n\nI am writing to you to tell you that you are the best friend I have ever had.\n\nSincerely,\n\nScratcher");
@@ -78,18 +98,30 @@ public class FirstRoom {
         topDesk.put("mechanical pencil sharpener", "This mechanical pencil sharpener is used to sharpen pencils");
         topDesk.put("metallic fan", "This metallic fan makes an eerie whirling sound, as if it's struggling to work. You notice burn marks on the fan");
 
-
         System.out.println("You inspect the desk");
-        System.out.println("Here is a description of what lies on top of the desk:\nA note, a pencil, a mechanical pencil sharpener, and a metallic fan");
+        System.out.println("Here is a description of what lies on top of the desk:\n\t**A note, \n\t**a pencil, \n\t**a mechanical pencil sharpener, \n\tand **a metallic fan");
         System.out.println("Would you like to inspect any items on top of the desk? y/n");
         String input = scan.nextLine();
         if(input.equalsIgnoreCase("y")) {
             System.out.println("Please specify what you'd like to inspect");
-            System.out.println("");
+            System.out.println("Here is a list of items on top of the desk:\n\tNote, \n\tPencil, \n\tMechanical Pencil Sharpener, \n\tMetallic Fan");
+            scan.reset();
             String itemToInspect = scan.nextLine();
-            switch(itemToInspect) {
+            switch(itemToInspect.toLowerCase()) {
                 case "note": {
                     System.out.println(topDesk.get("note"));
+                }
+                case "pencil": {
+                    System.out.println(topDesk.get("pencil"));
+                }
+                case "mechanical pencil sharpener": {
+                    System.out.println(topDesk.get("mechanical pencil sharpener"));
+                }
+                case "metallic fan": {
+                    System.out.println(topDesk.get("metallic fan"));
+                }
+                default: {
+                    System.out.println("Invalid input, please try again");
                 }
             }
 
@@ -99,6 +131,7 @@ public class FirstRoom {
         }
     }
     private static void firstLevelInspection() {
+        Scanner in = new Scanner(System.in);
         System.out.println("Here is a list of items you can inspect:");
         System.out.println("a. A desk");
         System.out.println("b. A chair");
@@ -106,34 +139,28 @@ public class FirstRoom {
         System.out.println("d. A vent");
         System.out.println("e. A door");
         System.out.println("f. A wall");
-        switch(scan.nextLine()) {
-            case "a": {
+        //scan.reset();
+         switch (in.nextLine()) {
+            case "a" -> {
                 System.out.println("You have inspected the desk.");
-                break;
             }
-            case "b": {
+            case "b" -> {
                 System.out.println("You have inspected the chair.");
-                break;
             }
-            case "c": {
+            case "c" -> {
                 System.out.println("You have inspected the bed.");
-                break;
             }
-            case "d": {
+            case "d" -> {
                 System.out.println("You have inspected the vent.");
-                break;
             }
-            case "e": {
+            case "e" -> {
                 System.out.println("You have inspected the door.");
-                break;
             }
-            case "f": {
+            case "f" -> {
                 System.out.println("You have inspected the wall.");
-                break;
             }
-            default: {
+            default -> {
                 System.out.println("Invalid input!");
-                break;
             }
         }
     }

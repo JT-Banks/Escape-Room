@@ -5,7 +5,7 @@
         {
           "firstRoomClue": 1,
           "clueName": "Burn Marks",
-          "clueDescription": "Burn marks on the floor",
+          "clueDescription": "Burn marks on the floor, walls, and ceiling.",
           "location": "First Room",
           "bingoClue": false
         }
@@ -14,7 +14,7 @@
         {
           "firstRoomClue": 2,
           "clueName": "Blood Stains",
-          "clueDescription": "Blood stains on the floor",
+          "clueDescription": "Tiny blood stains on the floor by the door.",
           "location": "First Room",
           "bingoClue": false
         }
@@ -23,7 +23,7 @@
         {
           "firstRoomClue": 3,
           "clueName": "Scuff Marks",
-          "clueDescription": "Scuff marks on the floor",
+          "clueDescription": "Scuff marks on the top right corner of the vent.",
           "location": "First Room",
           "bingoClue": true
         }
@@ -32,7 +32,7 @@
         {
           "firstRoomClue": 4,
           "clueName": "Desk",
-          "clueDescription": "Desk in the room",
+          "clueDescription": "A desk with several items on it.",
           "location": "First Room",
           "bingoClue": true
         }
@@ -41,7 +41,7 @@
         {
           "firstRoomClue": 5,
           "clueName": "Chair",
-          "clueDescription": "Chair in the room",
+          "clueDescription": "A very basic wooden chair, nothing special, however, there is a small hole in the back of the chair.",
           "location": "First Room",
           "bingoClue": false
         }
@@ -50,7 +50,7 @@
         {
           "firstRoomClue": 6,
           "clueName": "Bed",
-          "clueDescription": "Bed in the room",
+          "clueDescription": "A very basic iron bed, you notice holdings for what may appear to be for restraints...",
           "location": "First Room",
           "bingoClue": false
         }
@@ -59,7 +59,7 @@
         {
           "firstRoomClue": 7,
           "clueName": "Wall",
-          "clueDescription": "Wall in the room",
+          "clueDescription": "You notice a wall riddled with hand-written letters",
           "location": "First Room",
           "bingoClue": false
         }
@@ -68,7 +68,7 @@
         {
           "firstRoomClue": 8,
           "clueName": "Floor",
-          "clueDescription": "Floor in the room",
+          "clueDescription": "Upon closer inspection, you can see various clues on the floor...",
           "location": "First Room",
           "bingoClue": false
         }

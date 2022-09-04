@@ -1,4 +1,4 @@
-package actions;
+package Actions;
 
 public class PlayerActions {
     public final static String PlAYER_MOVE_UP = "player_move_up";

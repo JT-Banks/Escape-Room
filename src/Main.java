@@ -1,25 +1,26 @@
-import game_state.GameState;
+import State.GameState;
+import State.Transitions;
 
-import static game_state.Start.startScreen;
+import java.util.concurrent.TimeUnit;
+
+import static State.Start.startScreen;
 
 public class Main {
+
     public static void main(String[] args) throws InterruptedException {
-
-        startGame();
+        startGame(GameState.getPlaying());
     }
-
     //Game starts here
-    public static void startGame() throws InterruptedException {
+    public static void startGame(boolean gameState) throws InterruptedException {
         //Initialize game state
         GameState.setPlaying(true);
-        System.out.println("Game starting...");
+        System.out.println("Game starting.......");
         //sleep for 2 seconds
-        //TimeUnit.SECONDS.sleep(2);
-        System.out.println("...");
-        //TimeUnit.SECONDS.sleep(2);
-        System.out.println("...Game started!");
-        //Start game
-        startScreen();
-
+        Transitions.getSleep(3);
+        System.out.println("....................");
+        Transitions.getSleep(3);
+        System.out.println(".......Game started!");
+        //Start game pass in game state here
+        startScreen(GameState.getPlaying());
     }
 }

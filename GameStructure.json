@@ -1,0 +1,78 @@
+{
+  "FirstRoomClues": {
+    "Clues": {
+      "burn marks": [
+        {
+          "firstRoomClue": 1,
+          "clueName": "Burn Marks",
+          "clueDescription": "Burn marks on the floor",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ],
+      "blood stains": [
+        {
+          "firstRoomClue": 2,
+          "clueName": "Blood Stains",
+          "clueDescription": "Blood stains on the floor",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ],
+      "scuff marks": [
+        {
+          "firstRoomClue": 3,
+          "clueName": "Scuff Marks",
+          "clueDescription": "Scuff marks on the floor",
+          "location": "First Room",
+          "bingoClue": true
+        }
+      ],
+      "desk": [
+        {
+          "firstRoomClue": 4,
+          "clueName": "Desk",
+          "clueDescription": "Desk in the room",
+          "location": "First Room",
+          "bingoClue": true
+        }
+      ],
+      "chair": [
+        {
+          "firstRoomClue": 5,
+          "clueName": "Chair",
+          "clueDescription": "Chair in the room",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ],
+      "bed": [
+        {
+          "firstRoomClue": 6,
+          "clueName": "Bed",
+          "clueDescription": "Bed in the room",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ],
+      "wall": [
+        {
+          "firstRoomClue": 7,
+          "clueName": "Wall",
+          "clueDescription": "Wall in the room",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ],
+      "floor": [
+        {
+          "firstRoomClue": 8,
+          "clueName": "Floor",
+          "clueDescription": "Floor in the room",
+          "location": "First Room",
+          "bingoClue": false
+        }
+      ]
+    }
+  }
+}

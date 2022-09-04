@@ -1,4 +1,4 @@
-package game_state;
+package State;
 
 public class GameState {
     public static boolean PLAYING = true;
@@ -6,7 +6,12 @@ public class GameState {
     public final static String GAME_OVER = "Game Over";
     public final static String GAME_WON = "Game Won";
 
+    public static boolean roomSolved = false;
+
+    public static boolean gameSolved = false;
+
     public static long time;
+
     public static long startTime;
 
     //Getters

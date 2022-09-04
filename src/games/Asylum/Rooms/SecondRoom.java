@@ -6,7 +6,7 @@ public class SecondRoom {
     
     public boolean hallwayRoom(boolean secondRoomSolved) {
         
-        if(firstRoom.AnnieRoom()) {
+        if(firstRoom.AnnieRoom(false)) {
             secondRoom();
         }
         else {
